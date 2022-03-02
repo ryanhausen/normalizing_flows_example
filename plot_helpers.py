@@ -4,7 +4,7 @@ import numpy as np
 
 
 # https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_hist.html
-def scatter_hist(dist, x, y, ax, ax_histx, ax_histy):
+def scatter_hist(x, y, ax, ax_histx, ax_histy):
     # no labels
     ax_histx.tick_params(axis="x", labelbottom=False)
     ax_histy.tick_params(axis="y", labelleft=False)
@@ -29,14 +29,7 @@ def scatter_hist(dist, x, y, ax, ax_histx, ax_histy):
     ax_histy.hist(y, bins=bins, orientation='horizontal', density=True)
     ax_histy.annotate("Marginal Y", (0.05, 0.97), xycoords="axes fraction")
 
-    #y_min, y_max = ax.get_ylim()
-    #x_min, x_max = ax.get_xlim()
-    #xs, ys = np.meshgrid(np.linspace(x_min, x_max, num=100), np.linspace(y_min, y_max, num=100))
-    #vals = np.array([[y, x] for y, x in zip(ys.flatten(), xs.flatten())], dtype=np.float32)
-    #zs = dist.prob(vals).numpy().reshape([100, 100])
-    #ax.contour(xs, ys, zs, alpha=0.5, cmap="jet")
-
-def hist2d_marginals(dist, x, y):
+def hist2d_marginals(x, y):
     left, width = 0.1, 0.65
     bottom, height = 0.1, 0.65
     spacing = 0.005
